@@ -1,62 +1,98 @@
 import streamlit as st
-from auth import run as auth_run
 
-import ai_matchmaker_toolimport ai_scheduler_toolimport ai_scheduling_suggestionsimport central_dashboardimport complex_usage_optimizerimport contract_insights_aiimport contract_usage_trackerimport dome_usage_toolimport dynamic_pricing_toolimport event_control_panelimport facility_access_trackerimport facility_contract_monitorimport facility_master_trackerimport facility_membership_comparator_aiimport facility_membership_monitorimport governance_toolimport league_coordinatorimport marketing_flipbook_generatorimport membership_credit_trackerimport membership_crm_trackerimport membership_goal_trackerimport membership_insights_aiimport membership_loyalty_rewardsimport membership_marketing_aiimport membership_ticketing_integrationimport memberships_toolimport mentorship_centerimport nil_trackerimport pandadoc_contractimport performance_goal_aiimport proposal_to_pdfimport referee_managerimport report_download_portalimport revenue_heatmapimport revenue_proforma_autoimport scholarship_fund_managerimport scholarship_trackerimport sponsor_dashboardimport sponsorship_ai_calculatorimport sponsorship_availabilityimport sponsorship_contract_generatorimport sponsorship_inventory_managerimport sponsorship_roi_trackerimport sponsorship_trackerimport student_committeeimport team_club_managerimport visual_calendar_layoutimport volunteer_hubimport weekly_report_generator
+import ai_matchmaker_tool
+import ai_scheduler_tool
+import ai_scheduling_suggestions
+import central_dashboard
+import complex_usage_optimizer
+import contract_insights_ai
+import contract_usage_tracker
+import dome_usage_tool
+import dynamic_pricing_tool
+import event_control_panel
+import facility_access_tracker
+import facility_contract_monitor
+import facility_master_tracker
+import facility_membership_comparator_ai
+import facility_membership_monitor
+import governance_tool
+import league_coordinator
+import marketing_flipbook_generator
+import membership_credit_tracker
+import membership_crm_tracker
+import membership_goal_tracker
+import membership_insights_ai
+import membership_loyalty_rewards
+import membership_marketing_ai
+import membership_ticketing_integration
+import memberships_tool
+import mentorship_center
+import nil_tracker
+import pandadoc_contract
+import performance_goal_ai
+import proposal_to_pdf
+import referee_manager
+import report_download_portal
+import revenue_heatmap
+import revenue_proforma_auto
+import scholarship_fund_manager
+import sponsorship_ai_calculator
+import sponsorship_availability
+import sponsorship_contract_generator
+import sponsorship_tracker
+import weekly_report_generator
+import event_creator_ai
+import event_goal_tracker
+import event_marketing_perks_ai
+import event_sponsor_builder
 
 TOOLS = {
-    "Ai Matchmaker Tool": ai_matchmaker_tool
-    "Ai Scheduler Tool": ai_scheduler_tool
-    "Ai Scheduling Suggestions": ai_scheduling_suggestions
-    "Central Dashboard": central_dashboard
-    "Complex Usage Optimizer": complex_usage_optimizer
-    "Contract Insights Ai": contract_insights_ai
-    "Contract Usage Tracker": contract_usage_tracker
-    "Dome Usage Tool": dome_usage_tool
-    "Dynamic Pricing Tool": dynamic_pricing_tool
-    "Event Control Panel": event_control_panel
-    "Facility Access Tracker": facility_access_tracker
-    "Facility Contract Monitor": facility_contract_monitor
-    "Facility Master Tracker": facility_master_tracker
-    "Facility Membership Comparator Ai": facility_membership_comparator_ai
-    "Facility Membership Monitor": facility_membership_monitor
-    "Governance Tool": governance_tool
-    "League Coordinator": league_coordinator
-    "Marketing Flipbook Generator": marketing_flipbook_generator
-    "Membership Credit Tracker": membership_credit_tracker
-    "Membership Crm Tracker": membership_crm_tracker
-    "Membership Goal Tracker": membership_goal_tracker
-    "Membership Insights Ai": membership_insights_ai
-    "Membership Loyalty Rewards": membership_loyalty_rewards
-    "Membership Marketing Ai": membership_marketing_ai
-    "Membership Ticketing Integration": membership_ticketing_integration
-    "Memberships Tool": memberships_tool
-    "Mentorship Center": mentorship_center
-    "Nil Tracker": nil_tracker
-    "Pandadoc Contract": pandadoc_contract
-    "Performance Goal Ai": performance_goal_ai
-    "Proposal To Pdf": proposal_to_pdf
-    "Referee Manager": referee_manager
-    "Report Download Portal": report_download_portal
-    "Revenue Heatmap": revenue_heatmap
-    "Revenue Proforma Auto": revenue_proforma_auto
-    "Scholarship Fund Manager": scholarship_fund_manager
-    "Scholarship Tracker": scholarship_tracker
-    "Sponsor Dashboard": sponsor_dashboard
-    "Sponsorship Ai Calculator": sponsorship_ai_calculator
-    "Sponsorship Availability": sponsorship_availability
-    "Sponsorship Contract Generator": sponsorship_contract_generator
-    "Sponsorship Inventory Manager": sponsorship_inventory_manager
-    "Sponsorship Roi Tracker": sponsorship_roi_tracker
-    "Sponsorship Tracker": sponsorship_tracker
-    "Student Committee": student_committee
-    "Team Club Manager": team_club_manager
-    "Visual Calendar Layout": visual_calendar_layout
-    "Volunteer Hub": volunteer_hub
-    "Weekly Report Generator": weekly_report_generator
+    "Dashboard": central_dashboard,
+    "Memberships": memberships_tool,
+    "Member CRM": membership_crm_tracker,
+    "Membership Marketing": membership_marketing_ai,
+    "Membership Goals": membership_goal_tracker,
+    "Membership Loyalty": membership_loyalty_rewards,
+    "Ticketing & Access Logs": membership_ticketing_integration,
+    "Sponsorship Tracker": sponsorship_tracker,
+    "Sponsorship AI Calculator": sponsorship_ai_calculator,
+    "Sponsorship Contract Generator": sponsorship_contract_generator,
+    "Sponsorship Availability": sponsorship_availability,
+    "Proposal to PDF": proposal_to_pdf,
+    "PandaDoc Contract": pandadoc_contract,
+    "Contracts Tracker": contract_usage_tracker,
+    "Contract AI Insights": contract_insights_ai,
+    "Facility Contracts Benchmark": facility_contract_monitor,
+    "Revenue Heatmap": revenue_heatmap,
+    "Revenue Proforma": revenue_proforma_auto,
+    "Scheduler AI": ai_scheduler_tool,
+    "Scheduling Suggestions": ai_scheduling_suggestions,
+    "Dynamic Pricing Tool": dynamic_pricing_tool,
+    "Facility Optimizer": complex_usage_optimizer,
+    "Visual Layout": facility_master_tracker,
+    "Event Creator AI": event_creator_ai,
+    "Event Sponsorship Builder": event_sponsor_builder,
+    "Event Goals Tracker": event_goal_tracker,
+    "Event Conflict Calendar": event_control_panel,
+    "Event Marketing AI": event_marketing_perks_ai,
+    "Volunteer Manager": referee_manager,
+    "Referees": referee_manager,
+    "Teams & Leagues": team_club_manager,
+    "League Coordinator": league_coordinator,
+    "Governance": governance_tool,
+    "Student Committee": scholarship_fund_manager,
+    "Mentorships": mentorship_center,
+    "Scholarship Fund": scholarship_fund_manager,
+    "NIL Tracker": nil_tracker,
+    "AI Matchmaker": ai_matchmaker_tool,
+    "Weekly Report Generator": weekly_report_generator,
+    "Report Downloads": report_download_portal,
+    "Facility Membership Comparison": facility_membership_comparator_ai,
+    "Facility Access Log": facility_access_tracker
 }
 
 def run():
     st.set_page_config(page_title="Venture North Admin", layout="wide")
-    st.sidebar.title("🏟️ Venture North Tools")
-    selected = st.sidebar.selectbox("Select a Tool", list(TOOLS.keys()))
+    st.sidebar.title("📊 Admin Tools")
+    selected = st.sidebar.selectbox("Select Tool", list(TOOLS.keys()))
     TOOLS[selected].run()
