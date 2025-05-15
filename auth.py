@@ -1,3 +1,4 @@
 import streamlit as st
 def run():
-    st.title("Login System Active")
+    st.title("🔐 Login System")
+    st.success("Login page ready.")
