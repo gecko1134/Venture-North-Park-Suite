@@ -1,4 +1,4 @@
 import streamlit as st
-
 def run():
-    st.title("Main App Placeholder")
+    st.title("Venture North Admin - Main Dashboard")
+    st.success("Main App Loaded. Dropdown system wired.")
