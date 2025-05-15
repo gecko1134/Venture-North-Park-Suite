@@ -1,1 +1,3 @@
-# Venture North Admin Suite - Final Version\n\nIncludes all modules, dashboards, login and AI systems.
+# Venture North Admin Platform
+
+This full system includes login, dashboards, events, members, and AI tools.
