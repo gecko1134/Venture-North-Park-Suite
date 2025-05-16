@@ -1,4 +1,4 @@
 import streamlit as st
 def run():
-    st.title("📥 Report Download Portal")
-    st.download_button("Download Summary", "Summary content".encode(), "summary.pdf")
+    st.title("Download Reports")
+    st.download_button("Download PDF", "Report".encode(), "report.pdf")

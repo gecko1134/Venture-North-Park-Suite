@@ -1,4 +1,5 @@
 import streamlit as st
+
 def run():
-    st.title("📊 Central Dashboard")
-    st.write("Revenue, usage, and contract insights.")
+    st.title("Module Placeholder")
+    st.info("This module is loading correctly.")
